@@ -9,7 +9,7 @@ class TAY
         int a = 100;
         int b = 200;
         Console.WriteLine($"{a} + {b} = {a + b}");
-       
+
         // Swap the values of a and c
         int c = 10;
         Console.WriteLine($"Before swap: a = {a}, c = {c}");
