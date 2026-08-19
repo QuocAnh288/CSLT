@@ -53,7 +53,7 @@ class TAY
         Console.WriteLine($"Area of square = {side * side}");
 
         // convert days to years, weeks, and days
-        int days = 1000;
+        int days = 2000;
         int years = days / 365;
         int remainingDays = days % 365;
         int weeks = remainingDays / 7;
