@@ -3,7 +3,7 @@ using System.ComponentModel.Design;
 using System.Runtime.Intrinsics.X86;
 class TAY
 {
-    static void Main11(string[] args)
+    static void Main(string[] args)
     {
         // a + b
         int a = 100;
@@ -53,7 +53,7 @@ class TAY
         Console.WriteLine($"Area of square = {side * side}");
 
         // convert days to years, weeks, and days
-        int days = 2000;
+        int days = 2001;
         int years = days / 365;
         int remainingDays = days % 365;
         int weeks = remainingDays / 7;

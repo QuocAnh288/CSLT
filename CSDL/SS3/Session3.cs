@@ -6,7 +6,7 @@ using System;
 
 namespace CSLT
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {

@@ -15,4 +15,10 @@
     <Content Include="SS3\Session3.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="CSLT\Session2.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>
