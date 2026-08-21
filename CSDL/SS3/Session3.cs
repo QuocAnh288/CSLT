@@ -17,7 +17,6 @@ namespace CSLT.SS3
              //exercise2(); 
              //exercise3(); 
                 bt1();
-                //baitap2();
             }
 
 
