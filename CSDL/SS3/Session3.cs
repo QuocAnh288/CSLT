@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace CSLT.SS3
             {//exercise1();
              //exercise2(); 
              //exercise3(); 
-                bt1();
+             //bt1();
+             //bt2();
+                bt3();
             }
 
 
@@ -104,7 +107,41 @@ namespace CSLT.SS3
 
                 Console.WriteLine($"Tiền VAT: {vat} VND");
                 Console.WriteLine($"Tiền điện thanh toán : {TienDien + vat} VND");
-                
+
+            }
+            static void bt2()
+            {
+                //bai tap 2
+                Console.WriteLine("Nhập cân nặng:");
+                double weight = double.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập chiều cao:");
+                double height = double.Parse(Console.ReadLine());
+                double BMI = weight / (height * height);
+                double Min = 18.5 * height * height;
+                double Max = 22.9 * height * height;
+                if (BMI < 18.5)
+                {
+                    Console.WriteLine("Thiếu cân");
+                }
+                else if (BMI < 23)
+                {
+                    Console.WriteLine("Bình thường (Lý tưởng)");
+                }
+                else if (BMI < 25)
+                {
+                    Console.WriteLine("Thừa cân.");
+                }
+                else
+                {
+                    Console.WriteLine("Béo phì");
+                }
+                Console.WriteLine(string.Format("Chỉ số BMI: {0:F2}", BMI));
+                Console.WriteLine(string.Format("Dải cân nặng lí tưởng: {0:F2} - {1:F2}", Min, Max));
+
+            }
+            static void bt3()
+            {
+                Enum 
             }
         }
     }
