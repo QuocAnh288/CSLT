@@ -14,12 +14,12 @@ namespace CSLT.SS3
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
 
-            {//exercise1();
-             //exercise2(); 
-             //exercise3(); 
-             //bt1();
-             //bt2();
-                bt3();
+            {exercise1();
+             exercise2(); 
+             exercise3(); 
+             bt1();
+             bt2();
+             bt3();
             }
 
 
@@ -141,7 +141,7 @@ namespace CSLT.SS3
             }
             static void bt3()
             {
-                Enum 
+                
             }
         }
     }
