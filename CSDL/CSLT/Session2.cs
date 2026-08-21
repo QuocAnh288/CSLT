@@ -3,7 +3,7 @@ using System.ComponentModel.Design;
 using System.Runtime.Intrinsics.X86;
 class TAY
 {
-    static void Main(string[] args)
+    static void Main11(string[] args)
     {
         // a + b
         int a = 100;
