@@ -5,7 +5,7 @@ namespace CSLT
 {
     class TAY
     {
-        static void Main11111(string[] args)
+        static void Main1(string[] args)
         {
             // a + b
             int a = 100;

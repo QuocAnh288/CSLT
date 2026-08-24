@@ -15,7 +15,7 @@ namespace CSLT.SS3
         {
             USD = 1, EUR, JPY, GBP
         }
-        static void Main(string[] args)
+        static void Main3(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
@@ -25,7 +25,8 @@ namespace CSLT.SS3
              //exercise3(); 
              //bt1();
              //bt2();
-                bt3();
+             //bt3();
+                bt5();
             }
 
             static void exercise1()
@@ -189,7 +190,23 @@ namespace CSLT.SS3
 
 
             }
+            static void bt5()
+            {
+                Console.WriteLine("Nhập số tín C#");
+                double TLT = double.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập số tín TA");
+                double TTA = double.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập số tín T");
+                double TT = double.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập số điểm C#");
+                double DLT = double.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập số điểm TA");
+                double DTA = double.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập số điểm T");
+                double DT = double.Parse(Console.ReadLine());
 
+
+            }
 
         }
     }
