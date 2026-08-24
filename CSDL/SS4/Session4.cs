@@ -8,6 +8,7 @@ namespace CSLT.SS4
     {
         static void Main(string[] args)
         {
+            
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
             //ex1();
@@ -16,9 +17,8 @@ namespace CSLT.SS4
             //ex4();
             //ex5();
             ptbt2();
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int c = int.Parse(Console.ReadLine());
+
+            
         }
             static void ex1()
             {
@@ -92,16 +92,41 @@ namespace CSLT.SS4
 
             Console.ReadKey();
         }
-        static void ptbt2(int a, int b, int c)
+        static void ptbt2()
         {
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
             if (a == 0)
             {
                 if (b == 0)
                 {
                     if (c== 0)
                     {
-                        Console.WriteLine();
+                        Console.WriteLine("Phương trình có vô số nghiệm");
+                    } else
+                    {
+                        Console.WriteLine("Phương trình vô nghiệm");
                     }
+                }
+                else
+                {
+                    Console.WriteLine($"x = {-c/b}");
+                }
+            } else
+            {
+                double delta = b * b - 4 * a * c;
+                if(delta < 0)
+                {
+                    Console.WriteLine("Phương trình vô nghiệm");
+                } else if(delta == 0)
+                {
+                    Console.WriteLine($"x1 = x2 = {-b / 2 * a}");
+                }
+                else
+                {
+                    Console.WriteLine($"x1 = {(-b + Math.Sqrt(delta)) / 2 * a}");
+                    Console.WriteLine($"x1 = {(-b - Math.Sqrt(delta)) / 2 * a}");
                 }
             }
         }
