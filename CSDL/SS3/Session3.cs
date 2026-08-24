@@ -1,27 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CSLT.SS3
 {
-    internal class Session3
+    class Session3
     {
+        enum CurrencyType
+        {
+            USD = 1, EUR, JPY, GBP
+        }
         static void Main(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
 
-            {exercise1();
-             exercise2(); 
-             exercise3(); 
-             bt1();
-             bt2();
-             bt3();
+            {//exercise1();
+             //exercise2(); 
+             //exercise3(); 
+             //bt1();
+             //bt2();
+                bt3();
             }
-
 
             static void exercise1()
             {
@@ -141,8 +146,51 @@ namespace CSLT.SS3
             }
             static void bt3()
             {
-                
+                Console.WriteLine("Nhập số tiền cần đổi ngoại tệ (VNĐ)");
+                decimal VND = decimal.Parse(Console.ReadLine());
+                decimal PHI = (VND) * 0.005m;
+                decimal VNDR = VND - PHI;
+                Console.WriteLine("Chọn ngoại tệ (1-USD, 2-EUR, 3-JPY, 4-GBP)");
+                if (!int.TryParse(Console.ReadLine(), out int choice) || !Enum.IsDefined(typeof(CurrencyType), choice))
+                {
+                    Console.WriteLine("Lựa chọn ngoại tệ không hợp lệ!");
+                    return;
+                }
+
+                CurrencyType selectedCurrency = (CurrencyType)choice;
+                decimal TyGia = 0m;
+                string DV = "";
+                switch (selectedCurrency)
+                {
+                    case CurrencyType.USD:
+                        TyGia = 25400m;
+                        DV = "Dola";
+                        break;
+
+                    case CurrencyType.EUR:
+                        TyGia = 27200m;
+                        DV = "Euro";
+                        break;
+
+                    case CurrencyType.JPY:
+                        TyGia = 165m;
+                        DV = "Yen";
+                        break;
+
+                    case CurrencyType.GBP:
+                        TyGia = 32100m;
+                        DV = "GBP";
+                        break;
+                }
+                Console.WriteLine($"Tiền phí chuyển đổi:{PHI:N2}");
+                Console.WriteLine($"Số tiền sau khi trừ phí:{VNDR:N2}");
+                Console.WriteLine($"{VNDR:N0}(VNĐ) = {(VNDR / TyGia):N2}({DV}) ");
+
+
+
             }
+
+
         }
     }
 }
