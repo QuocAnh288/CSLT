@@ -26,7 +26,8 @@ namespace CSLT.SS3
              //bt1();
              //bt2();
              //bt3();
-                bt5();
+             //bt5();
+               bt7();
             }
 
             static void exercise1()
@@ -190,24 +191,60 @@ namespace CSLT.SS3
 
 
             }
+            
             static void bt5()
             {
                 Console.WriteLine("Nhập số tín C#");
-                double TLT = double.Parse(Console.ReadLine());
+                int TLT = int.Parse(Console.ReadLine());
                 Console.WriteLine("Nhập số tín TA");
-                double TTA = double.Parse(Console.ReadLine());
+                int TTA = int.Parse(Console.ReadLine());
                 Console.WriteLine("Nhập số tín T");
-                double TT = double.Parse(Console.ReadLine());
+                int TT = int.Parse(Console.ReadLine());
                 Console.WriteLine("Nhập số điểm C#");
                 double DLT = double.Parse(Console.ReadLine());
                 Console.WriteLine("Nhập số điểm TA");
                 double DTA = double.Parse(Console.ReadLine());
                 Console.WriteLine("Nhập số điểm T");
                 double DT = double.Parse(Console.ReadLine());
-
+                double AVG_D = (TLT * DLT + TTA * DTA + DT * TT) / (TLT + TTA + TT);
+            if(AVG_D >= 8.5)
+            {
+                    Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
+                    Console.WriteLine($"Điểm thang 4 là: 4.0");
+                    Console.WriteLine("Xếp loại: Xuất sắc");
+            
 
             }
+                else if (AVG_D >= 7)
+                {
+                    Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
+                    Console.WriteLine($"Điểm thang 4 là: 3.0");
+                    Console.WriteLine("Xếp loại: Khá");
+                }
+                else if (AVG_D >= 5.5)
+                {
+                    Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
+                    Console.WriteLine($"Điểm thang 4 là: 2.0");
+                    Console.WriteLine("Xếp loại: Trung Bình");
+                }
+                else if (AVG_D >= 4)
+                {
+                    Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
+                    Console.WriteLine($"Điểm thang 4 là: 1.0");
+                    Console.WriteLine("Xếp loại: Yếu");
+                }
+                else
+                {
+                    Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
+                    Console.WriteLine($"Điểm thang 4 là: 0");
+                    Console.WriteLine("Xếp loại: Kém");
+                }
 
+            }
+            static void bt7()
+            {
+
+            }
         }
     }
 }

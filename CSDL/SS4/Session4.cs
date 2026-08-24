@@ -10,11 +10,15 @@ namespace CSLT.SS4
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
-            ex1();
-            ex2();
-            ex3();
-            ex4();
-            ex5();
+            //ex1();
+            //ex2();
+            //ex3();
+            //ex4();
+            //ex5();
+            ptbt2();
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
         }
             static void ex1()
             {
@@ -45,12 +49,17 @@ namespace CSLT.SS4
             double km = double.Parse(Console.ReadLine());
             Console.WriteLine("Nhập số giờ");
             double hour = double.Parse(Console.ReadLine());
-            Console.WriteLine($"Kilometers per hour:{km / hour:N2}km/h");
-            Console.WriteLine($"Miles per hour:{km * 0.621371 / hour:N2}miles/h");
+            Console.WriteLine("Nhập số phút");
+            double minute = double.Parse(Console.ReadLine());
+            Console.WriteLine("Nhập số giây");
+            double second = double.Parse(Console.ReadLine());
+            double totalhour = hour + minute / 60 + second / 3600;
+            Console.WriteLine($"Kilometers per hour:{km / totalhour:N2}km/h");
+            Console.WriteLine($"Miles per hour:{km * 0.621371 / totalhour:N2}miles/h");
 
 
         }
-        static void ex4()
+            static void ex4()
         {
             Console.WriteLine("Enter radius of the sphere:");
             double r = double.Parse(Console.ReadLine());
@@ -59,12 +68,12 @@ namespace CSLT.SS4
             Console.WriteLine($"Surface area of the sphere = {surfaceArea}");
             Console.WriteLine($"Volume of the sphere = {volume}");
         }
-        static void ex5()
+            static void ex5()
         
         {
             Console.Write("Enter a character: ");
             char input = Console.ReadKey().KeyChar;
-            Console.WriteLine(); 
+            Console.WriteLine();  
 
             if (char.IsDigit(input))
             {
@@ -83,6 +92,20 @@ namespace CSLT.SS4
 
             Console.ReadKey();
         }
+        static void ptbt2(int a, int b, int c)
+        {
+            if (a == 0)
+            {
+                if (b == 0)
+                {
+                    if (c== 0)
+                    {
+                        Console.WriteLine();
+                    }
+                }
+            }
+        }
+
 
         }
     }
