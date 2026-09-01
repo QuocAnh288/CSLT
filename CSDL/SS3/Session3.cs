@@ -16,7 +16,7 @@ namespace CSLT.SS3
         {
             USD = 1, EUR, JPY, GBP
         }
-        static void Main(string[] args)
+        static void Main3(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
@@ -24,12 +24,12 @@ namespace CSLT.SS3
             {//exercise1();
              //exercise2(); 
              //exercise3(); 
-             //bt1();
-             //bt2();
-             //bt3();
-             //bt5();
-             //bt7();
-                bt9();
+             bt1();
+             bt2();
+             bt3();
+             bt5();
+             bt7();
+             bt9();
             }
 
             static void exercise1()
