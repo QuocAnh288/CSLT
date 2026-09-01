@@ -16,7 +16,7 @@ namespace CSLT.SS4
             //ex3();
             //ex4();
             //ex5();
-            //ptbt2();
+            ptbt2();
             state();
 
 
