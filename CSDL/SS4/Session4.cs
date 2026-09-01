@@ -6,7 +6,7 @@ namespace CSLT.SS4
 {
     class Session4
     {
-        static void Main(string[] args)
+        static void Main4(string[] args)
         {
             
             Console.InputEncoding = Encoding.UTF8;

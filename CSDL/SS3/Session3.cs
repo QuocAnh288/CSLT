@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CSLT.SS3
 {
@@ -15,7 +16,7 @@ namespace CSLT.SS3
         {
             USD = 1, EUR, JPY, GBP
         }
-        static void Main3(string[] args)
+        static void Main(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
@@ -27,7 +28,8 @@ namespace CSLT.SS3
              //bt2();
              //bt3();
              //bt5();
-               //bt7();
+             //bt7();
+                bt9();
             }
 
             static void exercise1()
@@ -190,8 +192,7 @@ namespace CSLT.SS3
 
 
 
-            }
-            
+            }  
             static void bt5()
             {
                 Console.WriteLine("Nhập số tín C#");
@@ -243,8 +244,60 @@ namespace CSLT.SS3
             }
             static void bt7()
             {
+                Console.WriteLine("Nhập khoảng cách chuyến đi"); 
+                double km = double.Parse(Console.ReadLine());
+                Console.WriteLine("Mức tiêu thụ nhiên liệu trung bình của xe(lít/ 100km)");
+                double A_L = double.Parse(Console.ReadLine());
+                Console.WriteLine("Giá xăng hiện tại");
+                decimal Cost = decimal.Parse(Console.ReadLine());
+                Console.WriteLine("Số người tham gia chuyến đi");
+                int Mem = int.Parse(Console.ReadLine());
+                double L = (km / 100) * A_L;
+                decimal Tong = (decimal)L * Cost;
+                decimal Chia = Tong / (decimal)Mem;
+                Console.WriteLine($"Số xăng sử dụng:{L}lít");
+                Console.WriteLine($"Chi phí tiền xăng là:{Tong}");
+                Console.WriteLine($"Mỗi người phải trả là:{Math.Ceiling(Chia):N2}");
 
             }
+            static void bt9()
+            {
+
+                Console.WriteLine("Nhập lương Gross(VNĐ):");
+                decimal Gross = decimal.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập số người phụ thuộc:");
+                int Dependents = int.Parse(Console.ReadLine());
+                decimal totalTax = Gross * (10.5m / 100m);
+                decimal TaxableIncome = Gross - totalTax - 11000000 - (4400000 * Dependents);
+                if (TaxableIncome <= 0)
+                {
+                    TaxableIncome = 0;
+                }
+                (decimal Limit, decimal Rate)[] branket = [
+                    (5_000_000m, 0.05m),
+                    (10_000_000m, 0.10m),
+                    (18_000_000m, 0.15m),
+                    (32_000_000m, 0.20m),
+                    (52_000_000m, 0.25m),
+                    (80_000_000m, 0.30m),
+                    (decimal.MaxValue,0.35m)];
+                decimal tax = 0, Prelimit = 0;
+                foreach (var (Limit, Rate) in branket)
+                {
+                    if (TaxableIncome <= Prelimit) break;
+
+                    tax += (Math.Min(TaxableIncome, Limit) - Prelimit) * Rate;
+
+                    Prelimit = Limit;
+                }
+                decimal net = Gross - totalTax - tax;
+
+                Console.WriteLine($"\nBảo hiểm (10.5%):     {totalTax:N0} VNĐ");
+                Console.WriteLine($"Thu nhập tính thuế:   {TaxableIncome:N0} VNĐ");
+                Console.WriteLine($"Thuế TNCN:            {tax:N0} VNĐ");
+                Console.WriteLine($"=> LƯƠNG NET:         {net:N0} VNĐ");
+            }
+            
         }
     }
 }
