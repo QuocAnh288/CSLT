@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography;
 using System.Text;
@@ -16,7 +18,11 @@ namespace CSLT.SS3
         {
             USD = 1, EUR, JPY, GBP
         }
-        static void Main3(string[] args)
+        enum CustomerType
+        {
+            Child, Student, Adult, Senior
+        }
+        static void Main(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
@@ -24,12 +30,14 @@ namespace CSLT.SS3
             {//exercise1();
              //exercise2(); 
              //exercise3(); 
-             bt1();
-             bt2();
-             bt3();
-             bt5();
-             bt7();
-             bt9();
+             //bt1();
+             //bt2();
+             //bt3();
+             //bt5();
+             //bt7();
+             //bt9();
+             //bt11();
+                bt15();
             }
 
             static void exercise1()
@@ -192,7 +200,7 @@ namespace CSLT.SS3
 
 
 
-            }  
+            }
             static void bt5()
             {
                 Console.WriteLine("Nhập số tín C#");
@@ -208,14 +216,14 @@ namespace CSLT.SS3
                 Console.WriteLine("Nhập số điểm T");
                 double DT = double.Parse(Console.ReadLine());
                 double AVG_D = (TLT * DLT + TTA * DTA + DT * TT) / (TLT + TTA + TT);
-            if(AVG_D >= 8.5)
-            {
+                if (AVG_D >= 8.5)
+                {
                     Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
                     Console.WriteLine($"Điểm thang 4 là: 4.0");
                     Console.WriteLine("Xếp loại: Xuất sắc");
-            
 
-            }
+
+                }
                 else if (AVG_D >= 7)
                 {
                     Console.WriteLine($"Điểm của bạn là:{AVG_D:N2}");
@@ -244,7 +252,7 @@ namespace CSLT.SS3
             }
             static void bt7()
             {
-                Console.WriteLine("Nhập khoảng cách chuyến đi"); 
+                Console.WriteLine("Nhập khoảng cách chuyến đi");
                 double km = double.Parse(Console.ReadLine());
                 Console.WriteLine("Mức tiêu thụ nhiên liệu trung bình của xe(lít/ 100km)");
                 double A_L = double.Parse(Console.ReadLine());
@@ -297,7 +305,82 @@ namespace CSLT.SS3
                 Console.WriteLine($"Thuế TNCN:            {tax:N0} VNĐ");
                 Console.WriteLine($"=> LƯƠNG NET:         {net:N0} VNĐ");
             }
-            
+            static void bt11()
+            {
+                Console.WriteLine("Nhập số tiền gửi ngân hàng:");
+                decimal P = decimal.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập thời gian gửi:");
+                int Thang = int.Parse(Console.ReadLine());
+                Console.WriteLine("Nhập lãi suất mỗi năm");
+                double r = double.Parse(Console.ReadLine());
+                decimal LaiDon = P * ((decimal)r / 100m) * ((decimal)Thang / 12m);
+                decimal LaiKep = P * (decimal)Math.Pow((r / 100 / 12) + 1, Thang) - P;
+                decimal Check = LaiKep - LaiDon;
+                Console.WriteLine($"Lãi đơn: {LaiDon:N0}");
+                Console.WriteLine($"Lãi kép: {LaiKep:N0}");
+                Console.WriteLine($"Chênh lệch: {Check:N0}(Lãi kép tối ưu hơn lãi đơn)");
+
+            }
+            static void bt15()
+            {
+                const decimal BasePrice = 100000m; // Giá vé gốc tiêu chuẩn: 100.000 VNĐ
+                const decimal WeekendSurchargeAmount = 20000m; // Phụ thu cuối tuần
+                Console.WriteLine("\nChọn loại khách hàng (0: Child, 1: Student, 2: Adult, 3: Senior):");
+                CustomerType customer = (CustomerType)int.Parse(Console.ReadLine());
+                Console.WriteLine("Chọn một ngày trong tuần(0: Sunday, 1: Monday, 2: Tuesday, 3: Wednesday, 4: Thursday, 5: Friday, 6: Saturday):");
+                DayOfWeek day = (DayOfWeek)int.Parse(Console.ReadLine());
+                bool HasStudentcard = false;
+                if(customer == CustomerType.Student)
+                {
+                    Console.WriteLine("Có thẻ sinh viên hợp lệ(True/False)");
+                    HasStudentcard = bool.Parse(Console.ReadLine());
+                }    
+                decimal DiscountRate = 0;
+                if (customer == CustomerType.Child || customer == CustomerType.Senior)
+                {
+                    DiscountRate = 0.5m;
+                }
+                else if (customer == CustomerType.Student && HasStudentcard == true)
+                {
+                    if (day >= DayOfWeek.Monday && day <= DayOfWeek.Thursday)
+                    {
+                        DiscountRate = 0.3m;
+                    }
+                    
+                }
+                else if(day == DayOfWeek.Wednesday && customer == CustomerType.Adult)
+                {
+                    DiscountRate = 0.2m;
+                }
+                decimal phuthu = 0;
+                if(day == DayOfWeek.Friday || day == DayOfWeek.Saturday || day == DayOfWeek.Sunday )
+                {
+                    phuthu = WeekendSurchargeAmount;
+                }
+                decimal final = (BasePrice - DiscountRate * BasePrice) + phuthu;
+                Console.WriteLine("\n========================================");
+                Console.WriteLine("            VÉ XEM PHIM CHI TIẾT        ");
+                Console.WriteLine("========================================");
+                Console.WriteLine($"Khách hàng        : {customer}");
+                if(customer == CustomerType.Student && HasStudentcard == true)
+                {
+                    Console.WriteLine($"Thẻ sinh viên hợp lệ" );
+                }
+                else if (customer == CustomerType.Student && HasStudentcard == false)
+                    Console.WriteLine($"Thẻ sinh viên không hợp lệ");
+
+                Console.WriteLine($"Ngày xem          : {day}");
+                Console.WriteLine($"Giá vé cơ bản:{BasePrice}(VNĐ)");
+                Console.WriteLine($"Giảm giá:{(DiscountRate * BasePrice):N0}(VNĐ)");
+                Console.WriteLine($"Phụ thu cuối tuần:{phuthu:N0}(VNĐ)");
+                Console.WriteLine($"Tiền vé cuối cùng:{final:N0}(VNĐ)");
+                
+
+
+
+
+
+            }
         }
     }
 }
