@@ -362,13 +362,12 @@ namespace CSLT.SS3
                 Console.WriteLine("            VÉ XEM PHIM CHI TIẾT        ");
                 Console.WriteLine("========================================");
                 Console.WriteLine($"Khách hàng        : {customer}");
-                if(customer == CustomerType.Student && HasStudentcard == true)
+                if (customer == CustomerType.Student && HasStudentcard == true)
                 {
-                    Console.WriteLine($"Thẻ sinh viên hợp lệ" );
+                    Console.WriteLine($"Thẻ sinh viên hợp lệ");
                 }
                 else if (customer == CustomerType.Student && HasStudentcard == false)
                     Console.WriteLine($"Thẻ sinh viên không hợp lệ");
-
                 Console.WriteLine($"Ngày xem          : {day}");
                 Console.WriteLine($"Giá vé cơ bản:{BasePrice}(VNĐ)");
                 Console.WriteLine($"Giảm giá:{(DiscountRate * BasePrice):N0}(VNĐ)");
