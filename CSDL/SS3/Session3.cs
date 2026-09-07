@@ -22,7 +22,7 @@ namespace CSLT.SS3
         {
             Child, Student, Adult, Senior
         }
-        static void Main(string[] args)
+        static void Main3(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
