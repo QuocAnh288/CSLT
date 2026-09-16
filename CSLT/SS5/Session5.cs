@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.Intrinsics.X86;
+using System.Runtime.Serialization;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -16,7 +18,7 @@ namespace CSLT.CSDL.SS5
 {
     class Session5
     {
-        static void Main(string[] args)
+        static void Main5(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
@@ -25,8 +27,8 @@ namespace CSLT.CSDL.SS5
                 //ex2();
                 //ex3();
                 //ex4();
-                ex6();
-                ex7();
+                //ex6();
+                //ex7();
                 ex8();
 
             }
@@ -134,15 +136,65 @@ namespace CSLT.CSDL.SS5
         }
         static void ex7()
         {
-            Console.WriteLine("Nhập một số bất kì (Số Nguyên):");
-            if (int.TryParse(Console.ReadLine(), out int n) && n > 0)
+            static bool KiemTraSoHoanHao(int n)
             {
-               
+                if (n < 2) return false;
+                int tong = 0;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        tong += i;
+                    }
+                }
+                return tong == n;
+            }
+            {
+                Console.Write("Nhập một số nguyên dương n: ");
+                int n = int.Parse(Console.ReadLine());
+
+                if (KiemTraSoHoanHao(n))
+                {
+                    Console.WriteLine($"{n} là số hoàn hảo.");
+                }
+                else
+                {
+                    Console.WriteLine($"{n} không phải là số hoàn hảo.");
+                }
             }
         }
         static void ex8()
         {
+            int n;
+            Console.WriteLine("Nhập số nguyên dương bất kì (>= 2):");
+
+            // Lặp lại liên tục chừng nào người dùng nhập sai hoặc n < 2
+            while (!int.TryParse(Console.ReadLine(), out n) || n < 2)
+            {
+                Console.WriteLine("Nhập lại chính xác số Nguyên Dương (>= 2):");
+            }
+            bool ktra = true;
+                for(int i = 2; i <= n /2; i++)
+                {
+                    if(n % i == 0)
+                    {
+                        ktra = false;
+                        break;
+                    }
+                    else
+                    {
+                        ktra = true;
+                    }
+                }
+                if (ktra == true)
+                {
+                    Console.WriteLine($"{n} là số nguyên tố");
+                }
+                else
+                {
+                    Console.WriteLine($"{n} không là số nguyên tố");
+                }
+            }    
 
         }
     }
-}
