@@ -133,7 +133,7 @@ namespace CSLT.CSLT.SS6
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
             //int[] arr = { 4,5,6,7 };
-            //double TB = ex10TinhTrungBinhMang(arr);
+            //double TB = ex10TinhTrungBinhMang(arr)
             //Console.WriteLine(TB);
             //int[] arr = { 5, 8, 9, 6, 45, 4, 2, 5, 4, 3, 25, 4 };
             //int i = ex13TimMinTrongMang(arr);
