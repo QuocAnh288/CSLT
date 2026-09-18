@@ -92,10 +92,10 @@ namespace CSLT.CSDL.SS6
 
         }
 
-        static void Main(string[] args)
+        static void Main6(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8; 
 
             Console.WriteLine($"Nhập số nguyên dương:");
             int n = int.Parse(Console.ReadLine());
