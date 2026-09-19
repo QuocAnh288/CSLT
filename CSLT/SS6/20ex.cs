@@ -90,16 +90,16 @@ namespace CSLT.CSLT.SS6
         static double ex9TinhLuyThua(double x, int y)
         {
             double lt = 1;
-            for(int i = 1; i <= y; i++)
+            for (int i = 1; i <= y; i++)
             {
                 lt *= x;
             }
             return lt;
         }
-        static double ex10TinhTrungBinhMang(int[]arr)  
+        static double ex10TinhTrungBinhMang(int[] arr)
         {
             double tong = 0;
-            foreach( char x in arr)
+            foreach (char x in arr)
             {
                 tong += x;
             }
@@ -126,19 +126,72 @@ namespace CSLT.CSLT.SS6
             }
             return tong;
         }
-
-        
-        static void Main(string[] args)
+        static int[] ex15SapXepMang(int[] arr)
         {
-            Console.InputEncoding = Encoding.UTF8;
-            Console.OutputEncoding = Encoding.UTF8;
-            //int[] arr = { 4,5,6,7 };
-            //double TB = ex10TinhTrungBinhMang(arr)
-            //Console.WriteLine(TB);
-            //int[] arr = { 5, 8, 9, 6, 45, 4, 2, 5, 4, 3, 25, 4 };
-            //int i = ex13TimMinTrongMang(arr);
-            //Console.WriteLine(i);
+            Array.Sort(arr);
+            return arr;
         }
+        static int ex17TimUCLN(int a, int b)
+        {
+
+            while (b != 0)
+            {
+                int r = a % b;
+                a = b;
+                b = r;
+            }
+            return a;
+        }
+        static bool ex19KiemTraNamNhuan(double year)
+        {
+            return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        }
+        static int ex20KiemTraSoChuTrongCau(string s)
+        {
+            int dem = 0;
+            bool DangTrongTu = false;
+            string space = " ";
+            foreach (char c in s)
+            {
+                if (c != ' ')
+                {
+                    if (!DangTrongTu)
+                    {
+                        dem++;
+                        DangTrongTu = true;
+                    }
+
+                }
+                else
+                {
+                    DangTrongTu = false;
+                }
+            }
+            return dem + 1;
+        }
+            static void Main(string[] args)
+            {
+                Console.InputEncoding = Encoding.UTF8;
+                Console.OutputEncoding = Encoding.UTF8;
+                //int[] arr = { 4,5,6,7 };
+                //double TB = ex10TinhTrungBinhMang(arr);
+                //Console.WriteLine(TB);
+                //int[] arr = { 5, 8, 9, 6, 45, 4, 2, 5, 4, 3, 25, 4 };
+                //int[] b = ex15SapXepMang(arr);
+                //Console.WriteLine(string.Join(", ", b));
+                //bool a = ex19KiemTraNamNhuan(2008);
+                //Console.WriteLine(a);
+                //int a = ex17TimUCLN(12,18);
+                //Console.WriteLine(a);
+                string b = "Hom nay o nha";
+                int c = ex20KiemTraSoChuTrongCau(b);
+                Console.WriteLine(c);
+
+
+            }
+        
     }
+    
 }
+
 
