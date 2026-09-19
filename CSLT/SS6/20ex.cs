@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Threading.Channels;
@@ -105,6 +106,18 @@ namespace CSLT.CSLT.SS6
             }
             return tong / arr.Length;
         }
+        static bool ex11KiemTraTinhDoiXung(string s)
+        {
+            s = s.ToLower();
+            char[] charArray = s.ToCharArray();
+            char[] BeforeReverse = charArray;
+            Array.Reverse(charArray);
+            if (charArray.SequenceEqual(BeforeReverse))
+            {
+                return true;
+            }
+            return false;
+        }
         static double ex12DoiTuDoCQuaDoF(double a)
         {
             double DoF = a * 1.8 + 32;
@@ -131,6 +144,19 @@ namespace CSLT.CSLT.SS6
             Array.Sort(arr);
             return arr;
         }
+        static string ex16XoaLapChuTrongTu(string s)
+        {
+            HashSet<char> DaXuatHien = new HashSet<char>();
+            StringBuilder ChoVao = new StringBuilder();
+            foreach(char c in s)
+            {
+                if (DaXuatHien.Add(c))
+                {
+                    ChoVao.Append(c);
+                }
+            }
+            return ChoVao.ToString();
+        }
         static int ex17TimUCLN(int a, int b)
         {
 
@@ -141,6 +167,22 @@ namespace CSLT.CSLT.SS6
                 b = r;
             }
             return a;
+        }
+        static string ex18DecimalToBinary(int n)
+        {
+            if (n == 0) return "0";
+
+            string ketQua = "";
+            int so = Math.Abs(n);
+
+            while (so > 0)
+            {
+                int du = so % 2;
+                ketQua = du + ketQua;
+                so /= 2;
+            }
+
+            return (n < 0) ? "-" + ketQua : ketQua;
         }
         static bool ex19KiemTraNamNhuan(double year)
         {
@@ -167,28 +209,21 @@ namespace CSLT.CSLT.SS6
                     DangTrongTu = false;
                 }
             }
-            return dem + 1;
+            return dem;
         }
-            static void Main(string[] args)
-            {
-                Console.InputEncoding = Encoding.UTF8;
-                Console.OutputEncoding = Encoding.UTF8;
-                //int[] arr = { 4,5,6,7 };
-                //double TB = ex10TinhTrungBinhMang(arr);
-                //Console.WriteLine(TB);
-                //int[] arr = { 5, 8, 9, 6, 45, 4, 2, 5, 4, 3, 25, 4 };
-                //int[] b = ex15SapXepMang(arr);
-                //Console.WriteLine(string.Join(", ", b));
-                //bool a = ex19KiemTraNamNhuan(2008);
-                //Console.WriteLine(a);
-                //int a = ex17TimUCLN(12,18);
-                //Console.WriteLine(a);
-                string b = "Hom nay o nha";
-                int c = ex20KiemTraSoChuTrongCau(b);
-                Console.WriteLine(c);
+        static void Main(string[] args)
+        {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+            string s = "bokhobanhmi";
+            string t = ex16XoaLapChuTrongTu(s);
+            Console.WriteLine(t);
 
+        }
+        
+        
+        
 
-            }
         
     }
     
