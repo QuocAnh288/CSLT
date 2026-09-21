@@ -63,13 +63,13 @@ namespace CSLT.CSLT.SS6
         {
             long t1 = 0;
             long t2 = 1;
-            for (int i = 0; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 Console.WriteLine(t1 + " ");
                 long sum = t1 + t2;
                 t1 = t2;
                 t2 = sum;
-
+                
             }
             Console.WriteLine();
 
@@ -215,10 +215,10 @@ namespace CSLT.CSLT.SS6
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
-            string s = "bokhobanhmi";
-            string t = ex16XoaLapChuTrongTu(s);
-            Console.WriteLine(t);
-
+            //int[] arr = [1, 2, 3, 4];
+            //ex15SapXepMang(arr);
+            //Console.WriteLine(string.Join(",",arr));
+            ex7nthFibonacci(10);
         }
         
         
