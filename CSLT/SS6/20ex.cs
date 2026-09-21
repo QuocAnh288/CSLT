@@ -110,7 +110,7 @@ namespace CSLT.CSLT.SS6
         {
             s = s.ToLower();
             char[] charArray = s.ToCharArray();
-            char[] BeforeReverse = charArray;
+            char[] BeforeReverse = (char[])charArray.Clone();
             Array.Reverse(charArray);
             if (charArray.SequenceEqual(BeforeReverse))
             {
@@ -150,9 +150,12 @@ namespace CSLT.CSLT.SS6
             StringBuilder ChoVao = new StringBuilder();
             foreach(char c in s)
             {
-                if (DaXuatHien.Add(c))
+                if (c != ' ')
                 {
-                    ChoVao.Append(c);
+                    if (DaXuatHien.Add(c))
+                    {
+                        ChoVao.Append(c);
+                    }
                 }
             }
             return ChoVao.ToString();
@@ -218,7 +221,10 @@ namespace CSLT.CSLT.SS6
             //int[] arr = [1, 2, 3, 4];
             //ex15SapXepMang(arr);
             //Console.WriteLine(string.Join(",",arr));
-            ex7nthFibonacci(10);
+            
+            string t = "radAr";
+            
+            Console.WriteLine(ex11KiemTraTinhDoiXung(t));
         }
         
         
