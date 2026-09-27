@@ -214,7 +214,7 @@ namespace CSLT.CSLT.SS6
             }
             return dem;
         }
-        static void Main(string[] args)
+        static void Main20(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
