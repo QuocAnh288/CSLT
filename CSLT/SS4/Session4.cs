@@ -142,7 +142,6 @@ namespace CSLT.SS4
             {
 
 
-                // ==================== BÀI 1: Check Even or Odd ====================
                 Console.WriteLine("--- EXERCISE 1: Check Even or Odd ---");
                 Console.Write("Input an integer: ");
                 int num = int.Parse(Console.ReadLine());
@@ -156,7 +155,6 @@ namespace CSLT.SS4
                     Console.WriteLine($"{num} is an odd integer.\n");
                 }
 
-                // ==================== BÀI 2: Largest of Three Numbers ====================
                 Console.WriteLine("--- EXERCISE 2: Largest of Three Numbers ---");
                 Console.Write("Input the 1st number: ");
                 int num1 = int.Parse(Console.ReadLine());
@@ -180,7 +178,7 @@ namespace CSLT.SS4
                     Console.WriteLine($"The 3rd number ({num3}) is the greatest.\n");
                 }
 
-                // ==================== BÀI 3: Triangle Type ====================
+                
                 Console.WriteLine("--- EXERCISE 3: Check Triangle Type ---");
                 Console.Write("Input side 1: ");
                 int side1 = int.Parse(Console.ReadLine());
@@ -211,7 +209,6 @@ namespace CSLT.SS4
                     Console.WriteLine("These side lengths do not form a valid triangle.\n");
                 }
 
-                // ==================== BÀI 4: Coordinate Quadrant ====================
                 Console.WriteLine("--- EXERCISE 4: Determine Coordinate Quadrant ---");
                 Console.Write("Input the value for X coordinate: ");
                 int co1 = int.Parse(Console.ReadLine());
