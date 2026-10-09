@@ -198,7 +198,8 @@ namespace CSLT.CSLT.SS7
         }
 
         //Requests 10 integers from the user and orders them by implementing the bubble sort algorithm.
-        //Request a sentence from the user, then ask to enter a word.Search if the word appears in the phrase using the linear search algorithm.
+        //Request a sentence from the user, then ask to enter a word.Search if the word
+        //appears in the phrase using the linear search algorithm.
         static void BubbleSort(int[] a)
         {
             int n = a.Length;
@@ -374,7 +375,7 @@ namespace CSLT.CSLT.SS7
             }
             Console.WriteLine();
         }
-            static void Main(string[] args)
+            static void Main7(string[] args)
         {
         
 

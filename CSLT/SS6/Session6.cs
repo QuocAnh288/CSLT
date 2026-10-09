@@ -92,7 +92,7 @@ namespace CSLT.CSDL.SS6
 
         }
 
-        static void Main6(string[] args)
+        static void Main(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8; 
